@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Task1-->
+<!--Electricity Bill-->
+    <h2>Electricity Bill Calculator</h2>
+    <div for="units">Enter Total Units Consumed:
+        <input type="number" id="units" min="0" placeholder="Enter units">
+    </div>
+    <button onclick="calculateBill()">Calculate Bill</button>
+
+    <p id="billResult"></p>
+
+    <script>
+        function calculateBill() {
+            const units = parseInt(document.getElementById('units').value);
+            if (isNaN(units) || units < 0) {
+                alert('Please enter a valid number of units.');
+                return;
+            }
+            let bill = 0;
+            if (units <= 200) {
+                bill = 0;
+            } else if (units <= 500) {
+                bill = (units - 200) * 1;
+            } else if (units <= 900) {
+                bill = (300 * 1) + (units - 500) * 2;
+            } else {
+                bill = (300 * 1) + (400 * 2) + (units - 900) * 3;
+            }
+            document.getElementById('billResult').textContent = "Total electricity bill: ₹${bill}";
+        }
+    </script>
+
+
+
+    <!--Task2-->
+<!--Showing the age of a person-->
+    <!-- <h2>Calculate Age from DOB</h2>
+    <div for="dob">Enter Date of Birth:<input type="date" id="dob">
+    </div>
+    <button onclick="calculateAge()">Calculate Age</button>
+
+    <p id="ageResult"></p>
+
+    <script>
+        function calculateAge()
+        {
+            const dobInput = document.getElementById('dob').value;
+            if (!dobInput) 
+            {
+                alert('Please select a date of birth');
+                return;
+            }
+            let dob = new Date(dobInput);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            let monthDiff = today.getMonth() - dob.getMonth();
+            let dayDiff = today.getDate() - dob.getDate();
+
+            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) 
+            {
+                age--;
+            }
+            document.getElementById('ageResult').textContent = You are ${age} years old.;
+        }
+    </script> -->
+
+
+
+    <!--Task3-->
+<!--Showing the current date and day-->
+    <!-- <script>
+        let currentDate = new Date();
+        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        let formattedDate = currentDate.toLocaleDateString('en-US', options);
+
+        console.log(formattedDate);
+
+    </script> -->
+</body>
+</html>
